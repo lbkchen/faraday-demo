@@ -1,0 +1,18 @@
+<h1>Discount Watson</h1>
+
+<div class="pages">
+  <%= form_tag(pages_home_path, method: 'get') do %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+
+  <% if @result %>
+    <% if @result["Image"] != nil %>
+      <%= image_tag @result["Image"], height: 300 %>
+    <% end %>
+    <h1><%= @result["Heading"] %></h1>
+    <p>
+      <%= @result["Abstract"] %>
+    </p>
+  <% end %>
+</div>
